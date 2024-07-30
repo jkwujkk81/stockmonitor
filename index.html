@@ -1,1 +1,265 @@
-hi
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="by 52pojie xbz123">
+    <meta name="generator" content="by 52pojie xbz123">
+    <title>stock copliot v1.0.0</title>
+    <!-- Bootstrap core CSS -->
+	<link href="https://cdn.bootcss.com/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<meta name="theme-color" content="#198754">
+    <style>
+	body {
+	  width: 100%;
+	  max-width: 420px;
+	  padding: 15px;
+	  margin: auto;
+	}
+	.hidden {
+		display:none;
+	}
+    </style>
+
+  </head>
+  <body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </symbol>
+      <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+      </symbol>
+      <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </symbol>
+      
+      <symbol id="icon-copy" fill="currentColor" viewBox="0 0 16 16">
+      	<path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+      	<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+      	<path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+      </symbol>
+    </svg>
+	<div class="container py-3">
+	  <header>
+	    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+	      <a href="javascript:void(0)" class="d-flex align-items-center text-dark text-decoration-none">
+	        <img class="me-2" src="https://avatar.52pojie.cn/data/avatar/001/72/97/17_avatar_small.jpg" alt="" width="40" height="40">
+	        <span class="fs-4">上班看股票(stock copliot)</span>
+	      </a>
+	     </div>
+	  </header>
+	
+		<main class="form-signin">
+		  <div>
+  		    <div class="alert alert-success" role="alert" id="resultMsg">
+			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+				输入代码，点击开始
+				 
+			</div>
+			
+			<div class="mb-3">
+    			<div class="input-group">
+    			    <!--<span class="input-group-text"></span>-->
+    		      <input type="text" class="form-control" value="" id="textStockTarget">
+    		      <a class="btn btn-outline-secondary" type="button" href="javascript:void(0)" id="searchBtn">开始</a>
+    			</div>
+                <span class="form-text">输入代码</span>
+            </div>
+            <div class="alert alert-warning" role="alert" id="tipText">
+                
+            </div>
+            
+		 
+		  </div>
+		  
+		</main>
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+		   <p class="mb-1">stock copliot</p>
+		   <p class="mb-1">52pojie：Xbz123 </p>
+		   <ul class="list-inline">
+		     <li class="list-inline-item"><a href="https://www.52pojie.cn/home.php?mod=space&uid=1729717&do=profile&from=space" target="_blank">52主页留言反馈问题</a></li>
+		   </ul>
+		 </footer>
+  
+	</div>
+  </body>
+</html>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script>
+    var front = {
+      version: 1.0,
+  //加载js
+      loadScript: function (url, callback) {
+        if (url == undefined) {
+          typeof callback === "function" && callback();
+          return false;
+        } else {
+          var script = document.createElement("script");
+          script.type = "text/javascript";
+          //回调函数
+          if (typeof (callback) != "undefined") {
+            if (script.readyState) {
+              script.onreadystatechange = function () {
+                if (script.readyState == "loaded" || script.readyState == "complete") {
+                  script.onreadystatechange = null;
+                  typeof callback === "function" && callback();
+                }
+              };
+            } else {
+              script.onload = function () {
+                typeof callback === "function" && callback();
+              };
+            }
+          }
+          script.src = url + "?version=" + this.version;
+          document.getElementsByTagName('body')[0].appendChild(script);
+        }
+      },
+      //加载css
+      createElement: function (url) {
+        var head = document.getElementsByTagName('HEAD').item(0);
+        var style = document.createElement('link');
+        
+        style.href = url;
+        style.rel = 'stylesheet';
+        style.type = 'text/css';
+        
+        head.appendChild(style);
+      },
+      loadJquery: function (callback) {
+        console.log("jQuery:" + window.jQuery + '|' + typeof '$');
+        if (window.jQuery || '$' in window) {
+          callback();
+        } else {
+          if (frontConfig.jqueryJsPath() != '') {
+            this.loadScript(frontConfig.jqueryJsPath(), callback);
+          } else {
+            setTimeout(function () {
+              callback();
+            },500);
+          }
+        }
+      }
+    }
+</script>
+<script>
+var tip = function(val) {
+    $("#tipText").text(val)
+}
+// function formatDateTime(dateString) {
+//   // 将字符串转换为日期对象
+//   let date = new Date(dateString);
+
+//   // 获取年份、月份、日期、小时、分钟和秒
+//   let year = date.getFullYear();
+//   let month = (date.getMonth() + 1) < 10? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+//   let day = date.getDate() < 10? '0' + date.getDate() : date.getDate();
+//   let hour = date.getHours() < 10? '0' + date.getHours() : date.getHours();
+//   let minute = date.getMinutes() < 10? '0' + date.getMinutes() : date.getMinutes();
+//   let second = date.getSeconds() < 10? '0' + date.getSeconds() : date.getSeconds();
+
+//   // 返回格式化后的日期时间字符串
+//   return `${year} 年 ${month} 月 ${day} 日 ${hour} 时 ${minute} 分 ${second} 秒`;
+// }
+</script>
+<script>
+var key = 'sz300033'
+var keyDefault = '300033'
+var code = "";
+
+$(function() {
+    if (typeof $.cookie("codecookie") == 'string' && $.cookie("codecookie") != "") {
+        $("#textStockTarget").val($.cookie("codecookie"))
+    } else {
+        $("#textStockTarget").val(keyDefault)
+    }
+})
+
+function syncCallback() {
+  console.log("syncCallback 1")
+  if (code.length <= 0) {
+    return false;
+  }
+  console.log("syncCallback 2")
+  var target = window['v_' + code];
+    if (typeof target != 'undefined') {
+        let array = target.split("~");
+        tip("正在监控:" + array[1]  + '|' + array[3] + '|' + array[32] )
+        if (array.length == 87) {
+            $("title").html(array[3] + '|' + array[32])
+        }
+    }
+}
+
+function sync(type = 0) {
+    console.log('sync:' + type);
+    var targetUrl = "https://qt.gtimg.cn/q=" + code;
+    if (type) {
+        front.loadScript(targetUrl, syncCallback);
+    } else {
+        front.loadScript(targetUrl)
+    }
+    
+}
+
+function print() {
+    if (code.length <= 0) {
+        return false;
+    }
+    console.log('print');
+    var target = window['v_' + code];
+    if (typeof target != 'undefined') {
+        let array = target.split("~");
+        console.log(array)
+        if (array.length == 87) {
+            $("title").html(array[3] + '|' + array[32])
+            tip("正在监控:" + array[1]  + '|' + array[3] + '|' + array[32])
+        }
+        
+    }
+}
+function getCode(key) {
+    // 判断是否是数字
+    if (!/^\d+$/.test(key)) {
+        return 0;
+    }
+    // 判断长度是否为 6
+    if (key.length!== 6) {
+        return 0;
+    }
+    
+    if (key.startsWith("0") || key.startsWith("3")) {
+        return "sz" + key;
+    } else {
+        return "sh" + key;
+    }
+}
+
+// setTimeout(function () {
+//   setInterval(printNumber, 3000);
+// });
+    $("#searchBtn").click(function() {
+        key = $("#textStockTarget").val();
+        if (key == 0) {
+            alert("请输入正确的代码")
+        }
+        
+        $.cookie("codecookie", key, {expires: 365});
+        
+        code = getCode(key);
+        console.log(code)
+        sync(1)
+        setInterval(sync, 3000);
+        setInterval(print, 3000);
+    })
+    
+    
+
+</script>
+<script>
+//
+</script>
